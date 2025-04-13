@@ -1,0 +1,1640 @@
+I will give you some code files of my project, then I will ask you some modifications to do in the project. Please do the modification and send only the code files that have been modified (complete files) in a code block.
+These are the ui files that I have made.
+.//eslint.config.js
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  },
+)
+
+
+.//index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manga UI Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+.//package.json
+{
+  "name": "vite-react-typescript-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.5.0",
+    "socket.io-client": "^4.8.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^5.4.2"
+  }
+}
+
+
+.//postcss.config.js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+
+.//prompt.txt
+I will give you some code files of my project, then I will ask you some modifications to do in the project. Please do the modification and send only the code files that have been modified (complete files) in a code block.
+These are the ui files that I have made.
+.//eslint.config.js
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  },
+)
+
+
+.//index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manga UI Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+.//package.json
+{
+  "name": "vite-react-typescript-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.5.0",
+    "socket.io-client": "^4.8.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^5.4.2"
+  }
+}
+
+
+.//postcss.config.js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+
+.//prompt.txt
+
+
+.//promt-maker.js
+import fs from 'fs';
+
+const srcFolder = './';
+const promptTextFile = `./prompt.txt`;
+const serverFolder = './server';
+const foldersToIgnore = ['node_modules', 'dist', 'build', 'package-lock.json'];
+
+const getFile = (path) => {
+  // If path is a folder, go inside
+
+  const fileOrFolder = fs.statSync(path);
+  const folderName = path.split('/').pop();
+  if (foldersToIgnore.includes(folderName)) return;
+  if (fileOrFolder.isDirectory()) {
+    // get the files in the folder
+    const files = fs.readdirSync(path);
+    return files.map(file => getFile(`${path}/${file}`));
+  }else{
+    // add content to prompt.txt with the path and content like
+    // src/components/IntentNode.tsx
+    // <content>
+
+    fs.appendFileSync(promptTextFile, `${path}\n`);
+    fs.appendFileSync(promptTextFile, fs.readFileSync(path, 'utf8'));
+    fs.appendFileSync(promptTextFile, '\n');
+    fs.appendFileSync(promptTextFile, '\n');
+  }
+}
+
+fs.appendFileSync(promptTextFile, "I will give you some code files of my project, then I will ask you some modifications to do in the project. Please do the modification and send only the code files that have been modified (complete files) in a code block.\n")
+
+fs.appendFileSync(promptTextFile, 'These are the ui files that I have made.\n');
+getFile(srcFolder);
+
+fs.appendFileSync(promptTextFile, 'These are the server files that I have made.\n');
+getFile(serverFolder);
+
+
+.//server/index.js
+// File: /server/index.js
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+const app = express();
+const server = createServer(app);
+const io = new Server(server, { cors: { origin: 'http://localhost:3002' } }); // Adjust for your frontend port
+
+let rooms = [];
+let users = [{ id: '1', username: 'Sensei', email: 'sensei@example.com', password: 'pass123' }];
+
+io.on('connection', (socket) => {
+  console.log('User connected:', socket.id);
+
+  socket.on('register', ({ username, email, password }, callback) => {
+    if (users.some((u) => u.email === email)) return callback({ success: false, error: 'Email exists' });
+    const user = { id: socket.id, username, email, password };
+    users.push(user);
+    callback({ success: true, user });
+  });
+
+  socket.on('login', ({ email, password }, callback) => {
+    const user = users.find((u) => u.email === email && u.password === password);
+    if (!user) return callback({ success: false, error: 'Invalid credentials' });
+    // Update the user's id to the current socket id.
+    callback({ success: true, user: { ...user, id: socket.id } });
+  });
+
+  socket.on('createRoom', ({ title, isPublic }, callback) => {
+    console.log('Received createRoom:', { title, isPublic });
+    // Generate a unique room ID instead of relying solely on Date.now()
+    const roomId = `${Date.now()}-${Math.random().toString(36).substr(2, 5)}`;
+    const room = {
+      id: roomId,
+      title,
+      hostId: socket.id,
+      participants: [{ userId: socket.id, isSpeaker: true, isMuted: false }],
+      isPublic,
+    };
+    rooms.push(room);
+    socket.join(roomId);
+    io.emit('roomsUpdated', rooms);
+    console.log('Sending createRoom callback:', roomId);
+    callback(roomId);
+  });
+
+  socket.on('joinRoom', (roomId, callback) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (!room || room.participants.some((p) => p.userId === socket.id)) {
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+      callback(true);
+      return;
+    }
+    room.participants.push({ userId: socket.id, isSpeaker: false, isMuted: false });
+    socket.join(roomId);
+    io.to(roomId).emit('roomUpdated', room);
+    io.emit('roomsUpdated', rooms);
+    callback(true);
+  });
+
+  socket.on('leaveRoom', (roomId) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room) {
+      room.participants = room.participants.filter((p) => p.userId !== socket.id);
+      socket.leave(roomId);
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+    }
+  });
+
+  socket.on('toggleMute', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room) {
+      room.participants = room.participants.map((p) =>
+        p.userId === userId ? { ...p, isMuted: !p.isMuted } : p
+      );
+      io.to(roomId).emit('roomUpdated', room);
+    }
+  });
+
+  socket.on('promoteToSpeaker', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room && room.hostId === socket.id) {
+      room.participants = room.participants.map((p) =>
+        p.userId === userId ? { ...p, isSpeaker: true, isMuted: false } : p
+      );
+      io.to(roomId).emit('roomUpdated', room);
+    }
+  });
+
+  socket.on('kickUser', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room && room.hostId === socket.id) {
+      room.participants = room.participants.filter((p) => p.userId !== userId);
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+    }
+  });
+
+  socket.on('offer', ({ roomId, offer }) => {
+    socket.to(roomId).emit('offer', { offer, from: socket.id });
+  });
+
+  socket.on('answer', ({ roomId, answer, to }) => {
+    socket.to(to).emit('answer', { answer, from: socket.id });
+  });
+
+  socket.on('ice-candidate', ({ roomId, candidate }) => {
+    socket.to(roomId).emit('ice-candidate', { candidate, from: socket.id });
+  });
+
+  socket.on('disconnect', () => {
+    rooms = rooms.map((r) => ({
+      ...r,
+      participants: r.participants.filter((p) => p.userId !== socket.id),
+    }));
+    io.emit('roomsUpdated', rooms);
+    console.log('User disconnected:', socket.id);
+  });
+});
+
+server.listen(3001, () => console.log('Server running on port 3001'));
+
+.//src/App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LiveRoomPage from './pages/LiveRoomPage';
+import AuthPage from './pages/AuthPage';
+import { AppProvider } from './context/AppContext';
+
+function App() {
+  return (
+    <AppProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/room/:roomId" element={<LiveRoomPage />} />
+          <Route path="/login" element={<AuthPage isLogin={true} />} />
+          <Route path="/register" element={<AuthPage isLogin={false} />} />
+        </Routes>
+      </Router>
+    </AppProvider>
+  );
+}
+
+export default App;
+
+.//src/components/ControlButton.tsx
+import React from 'react';
+
+interface ControlButtonProps {
+  icon: React.ReactNode;
+  label: string;
+  onClick?: () => void;
+  variant?: 'cyan' | 'magenta' | 'lime';
+  isActive?: boolean;
+}
+
+const ControlButton: React.FC<ControlButtonProps> = ({
+  icon,
+  label,
+  onClick,
+  variant = 'lime',
+  isActive = false,
+}) => {
+  const variantClasses = {
+    cyan: 'speech-bubble-button-cyan',
+    magenta: 'speech-bubble-button-magenta',
+    lime: '',
+  };
+
+  const [clicked, setClicked] = React.useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    onClick?.();
+    setTimeout(() => setClicked(false), 300); // Reset animation
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`
+        speech-bubble-button ${variantClasses[variant]}
+        flex flex-col items-center justify-center p-3 m-2
+        group hover:animate-flash active:scale-95 transition-transform
+        ${isActive ? 'ring-2 ring-offset-2 ring-offset-manga-black ring-white' : ''}
+        ${clicked ? 'animate-bubble-pop' : ''}
+      `}
+      aria-label={label}
+    >
+      <div className="mb-1 group-hover:scale-110 transition-transform">{icon}</div>
+      <span className="text-xs font-bold uppercase">{label}</span>
+    </button>
+  );
+};
+
+export default ControlButton;
+
+.//src/components/RoomCard.tsx
+import React from 'react';
+import { Users } from 'lucide-react'; // Icon for participant count
+
+interface RoomCardProps {
+  title: string;
+  host: string;
+  participants: number;
+}
+
+const RoomCard: React.FC<RoomCardProps> = ({ title, host, participants }) => {
+  return (
+    <div
+      className="
+        bg-gray-800 border-3 border-manga-black p-4 mb-4
+        transform -rotate-3 hover:rotate-0 hover:scale-105
+        transition-transform duration-300 ease-out
+        cursor-pointer group relative overflow-hidden
+        hover:border-neon-cyan hover:shadow-neon-cyan
+      "
+      style={{ borderImage: 'linear-gradient(to right, #1a1a1a, #1a1a1a) 1', borderWidth: '3px' }} // Ensure solid border initially
+    >
+       <div className="absolute inset-0 border-3 border-transparent group-hover:border-neon-cyan transition-colors duration-300"></div> {/* Neon outline on hover */}
+       <div className="relative z-10"> {/* Content above outline */}
+        <h3 className="font-manga font-black text-xl text-manga-white mb-1 truncate">{title}</h3>
+        <p className="text-sm text-gray-400 mb-2">Host: {host}</p>
+        <div className="flex items-center">
+          <Users size={16} className="text-neon-lime mr-1" />
+          <span className="text-neon-lime font-bold text-sm">{participants}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RoomCard;
+
+
+.//src/components/UserAvatar.tsx
+import React from 'react';
+import { Star } from 'lucide-react';
+
+interface UserAvatarProps {
+  name: string;
+  imageUrl?: string;
+  status: 'speaking' | 'muted' | 'listening';
+  isHost?: boolean;
+}
+
+const UserAvatar: React.FC<UserAvatarProps> = ({ name, imageUrl, status, isHost = false }) => {
+  const getInitials = (name: string) => name.charAt(0).toUpperCase();
+
+  const statusClasses = {
+    speaking: 'ring-neon-cyan shadow-neon-cyan animate-pulse',
+    muted: 'ring-red-600',
+    listening: 'ring-gray-600',
+  };
+
+  const [impact, setImpact] = React.useState(false);
+
+  React.useEffect(() => {
+    if (status === 'speaking') {
+      setImpact(true);
+      const timer = setTimeout(() => setImpact(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  return (
+    <div className="relative inline-block">
+      <div
+        className={`
+          w-16 h-16 rounded-full border-4 border-manga-black bg-gray-700
+          flex items-center justify-center overflow-hidden
+          ring-4 ${statusClasses[status]} transition-all duration-300 ease-in-out
+          ${status === 'speaking' ? 'scale-105' : ''}
+          ${isHost ? 'animate-pulse-glow' : ''}
+        `}
+      >
+        {imageUrl ? (
+          <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
+        ) : (
+          <span className="font-manga font-black text-3xl text-neon-cyan">
+            {getInitials(name)}
+          </span>
+        )}
+        {status === 'speaking' && (
+          <div className="absolute inset-0 rounded-full bg-gradient-radial from-neon-cyan/30 to-transparent animate-ping opacity-50 duration-1000"></div>
+        )}
+        {impact && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-20 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHBhdGggZD0iTTE2IDMyTDMyIDQ4TDQ4IDMyTDMyIDE2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBGRkZGIiBzdHJva2Utd2lkdGg9IjQiIGNsYXNzPSJhbmltYXRlLWltcGFjdCIvPjwvc3ZnPg==')] bg-no-repeat bg-center"></div>
+          </div>
+        )}
+      </div>
+      {isHost && (
+        <div className="absolute -top-1 -right-1 bg-neon-magenta text-manga-black p-1 rounded-full border-2 border-manga-black shadow-neon-magenta">
+          <Star size={14} fill="currentColor" strokeWidth={0} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default UserAvatar;
+
+.//src/context/AppContext.tsx
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { io, Socket } from 'socket.io-client';
+
+interface User {
+  id: string;
+  username: string;
+  email: string;
+}
+
+interface Room {
+  id: string;
+  title: string;
+  hostId: string;
+  participants: { userId: string; isSpeaker: boolean; isMuted: boolean }[];
+  isPublic: boolean;
+}
+
+interface AppContextType {
+  currentUser: User | null;
+  rooms: Room[];
+  login: (email: string, password: string, callback: (result: { success: boolean; error?: string }) => void) => void;
+  register: (username: string, email: string, password: string, callback: (result: { success: boolean; error?: string }) => void) => void;
+  logout: () => void;
+  createRoom: (title: string, isPublic: boolean, callback: (roomId: string | null) => void) => void;
+  joinRoom: (roomId: string, callback: (success: boolean) => void) => void;
+  leaveRoom: (roomId: string) => void;
+  toggleMute: (roomId: string, userId: string) => void;
+  promoteToSpeaker: (roomId: string, userId: string) => void;
+  kickUser: (roomId: string, userId: string) => void;
+  socket: Socket | null;
+  isConnected: boolean;
+}
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [rooms, setRooms] = useState<Room[]>([]);
+  const [isConnected, setIsConnected] = useState(false);
+  const [socket] = useState<Socket>(() =>
+    io('http://localhost:3001', {
+      autoConnect: false,
+      reconnection: true,
+      reconnectionAttempts: 5,
+      reconnectionDelay: 1000,
+    })
+  );
+
+  useEffect(() => {
+    console.log('Initializing Socket.IO client...');
+    socket.connect();
+
+    socket.on('connect', () => {
+      console.log('Socket connected successfully:', socket.id);
+      setIsConnected(true);
+    });
+
+    socket.on('disconnect', (reason) => {
+      console.log('Socket disconnected:', reason);
+      setIsConnected(false);
+    });
+
+    socket.on('connect_error', (err) => {
+      console.error('Socket connection error:', err.message);
+      setIsConnected(false);
+    });
+
+    socket.on('reconnect', (attempt) => {
+      console.log('Socket reconnected after', attempt, 'attempts');
+      setIsConnected(true);
+    });
+
+    socket.on('roomsUpdated', (updatedRooms: Room[]) => {
+      console.log('Received roomsUpdated:', updatedRooms);
+      setRooms(updatedRooms);
+    });
+
+    return () => {
+      console.log('Cleaning up Socket.IO listeners...');
+      socket.off('connect');
+      socket.off('disconnect');
+      socket.off('connect_error');
+      socket.off('reconnect');
+      socket.off('roomsUpdated');
+      socket.disconnect();
+    };
+  }, [socket]);
+
+  const login = (email: string, password: string, callback: (result: { success: boolean; error?: string }) => void) => {
+    if (!isConnected) return callback({ success: false, error: 'Not connected to server' });
+    socket.emit('login', { email, password }, ({ success, user, error }: any) => {
+      console.log('Login response:', { success, user, error });
+      if (success) {
+        setCurrentUser(user);
+        callback({ success: true });
+      } else {
+        callback({ success: false, error });
+      }
+    });
+  };
+
+  const register = (
+    username: string,
+    email: string,
+    password: string,
+    callback: (result: { success: boolean; error?: string }) => void
+  ) => {
+    if (!isConnected) return callback({ success: false, error: 'Not connected to server' });
+    socket.emit('register', { username, email, password }, ({ success, user, error }: any) => {
+      console.log('Register response:', { success, user, error });
+      if (success) {
+        setCurrentUser(user);
+        callback({ success: true });
+      } else {
+        callback({ success: false, error });
+      }
+    });
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    socket.disconnect();
+  };
+
+  const createRoom = (title: string, isPublic: boolean, callback: (roomId: string | null) => void) => {
+    if (!currentUser || !isConnected) {
+      console.log('createRoom failed: User not logged in or socket not connected');
+      return callback(null);
+    }
+    console.log('Emitting createRoom:', { title, isPublic });
+    socket.emit('createRoom', { title, isPublic }, (roomId: string) => {
+      console.log('createRoom callback received:', roomId);
+      callback(roomId);
+    });
+  };
+
+  const joinRoom = (roomId: string, callback: (success: boolean) => void) => {
+    if (!currentUser || !isConnected) return callback(false);
+    socket.emit('joinRoom', roomId, (success: boolean) => {
+      console.log('Join room response:', success);
+      callback(success);
+    });
+  };
+
+  const leaveRoom = (roomId: string) => {
+    if (!isConnected) return;
+    socket.emit('leaveRoom', roomId);
+  };
+
+  const toggleMute = (roomId: string, userId: string) => {
+    if (!isConnected) return;
+    socket.emit('toggleMute', { roomId, userId });
+  };
+
+  const promoteToSpeaker = (roomId: string, userId: string) => {
+    if (!isConnected) return;
+    socket.emit('promoteToSpeaker', { roomId, userId });
+  };
+
+  const kickUser = (roomId: string, userId: string) => {
+    if (!isConnected) return;
+    socket.emit('kickUser', { roomId, userId });
+  };
+
+  return (
+    <AppContext.Provider
+      value={{
+        currentUser,
+        rooms,
+        login,
+        register,
+        logout,
+        createRoom,
+        joinRoom,
+        leaveRoom,
+        toggleMute,
+        promoteToSpeaker,
+        kickUser,
+        socket,
+        isConnected,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (!context) throw new Error('useAppContext must be used within AppProvider');
+  return context;
+};
+
+.//src/index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-manga-black text-manga-white font-sans antialiased;
+  }
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+}
+
+@layer components {
+  /* Basic screentone background utility */
+  .bg-screentone {
+    @apply bg-screentone-dots bg-screentone-size bg-repeat;
+  }
+  /* Speech bubble style */
+  .speech-bubble {
+    @apply relative bg-manga-white text-manga-black font-manga font-bold py-2 px-4 rounded-md border-2 border-manga-black;
+  }
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: theme('colors.manga.black');
+    border-bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -12px; /* Position below the border */
+  }
+  .speech-bubble-button {
+     @apply relative bg-neon-lime text-manga-black font-manga font-black py-2 px-5 rounded-md border-2 border-manga-black uppercase tracking-wider hover:bg-opacity-90 transition-colors duration-200;
+     /* Basic jagged edge simulation */
+     clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%, 5% 50%);
+  }
+   .speech-bubble-button-magenta {
+     @apply bg-neon-magenta;
+   }
+   .speech-bubble-button-cyan {
+     @apply bg-neon-cyan;
+   }
+}
+
+
+.//src/main.tsx
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+
+.//src/pages/AuthPage.tsx
+import React, { useState } from 'react';
+import { LogIn, UserPlus } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
+
+interface AuthPageProps {
+  isLogin?: boolean;
+}
+
+const AuthPage: React.FC<AuthPageProps> = ({ isLogin = true }) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { login, register, isConnected } = useAppContext();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isConnected) {
+      setError('Cannot connect to server. Please try again later.');
+      return;
+    }
+    setError('');
+    setLoading(true);
+
+    if (isLogin) {
+      login(email, password, (result) => {
+        setLoading(false);
+        if (result.success) {
+          navigate('/');
+        } else {
+          setError(result.error || 'Invalid email or password');
+        }
+      });
+    } else {
+      register(username, email, password, (result) => {
+        setLoading(false);
+        if (result.success) {
+          navigate('/');
+        } else {
+          setError(result.error || 'Email already exists');
+        }
+      });
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 bg-speed-lines p-4">
+      <div
+        className="
+          bg-manga-white text-manga-black p-8 md:p-12 rounded-lg border-4 border-manga-black
+          w-full max-w-md relative
+          transform -rotate-2 shadow-lg
+        "
+      >
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/10 to-transparent opacity-30 -z-10"></div>
+        <h2 className="font-manga font-black text-3xl text-center mb-8">
+          {isLogin ? 'Log In' : 'Register'}
+        </h2>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          {!isLogin && (
+            <div>
+              <label htmlFor="username" className="block text-sm font-bold mb-1">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className="w-full px-3 py-2 bg-transparent border-b-2 border-manga-black focus:border-neon-cyan outline-none transition-colors duration-300"
+                disabled={loading || !isConnected}
+              />
+            </div>
+          )}
+          <div>
+            <label htmlFor="email" className="block text-sm font-bold mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-3 py-2 bg-transparent border-b-2 border-manga-black focus:border-neon-cyan outline-none transition-colors duration-300"
+              disabled={loading || !isConnected}
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-bold mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              id="password"
+              required
+              className="w-full px-3 py-2 bg-transparent border-b-2 border-manga-black focus:border-neon-cyan outline-none transition-colors duration-300"
+              disabled={loading || !isConnected}
+            />
+          </div>
+          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+          {!isConnected && (
+            <p className="text-yellow-400 text-sm text-center">Connecting to server...</p>
+          )}
+          <button
+            type="submit"
+            className="speech-bubble-button w-full mt-4 !bg-neon-lime disabled:opacity-50"
+            disabled={loading || !isConnected}
+          >
+            {loading ? 'Processing...' : 'Go!'}
+          </button>
+        </form>
+        <p className="text-center mt-6 text-sm">
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}
+          <a
+            href={isLogin ? '/register' : '/login'}
+            className="text-neon-cyan font-bold ml-1 hover:underline"
+          >
+            {isLogin ? 'Register' : 'Log In'}
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default AuthPage;
+
+.//src/pages/HomePage.tsx
+// File: ./src/pages/HomePage.tsx
+import React, { useState } from 'react';
+import RoomCard from '../components/RoomCard';
+import { Plus } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
+
+const HomePage: React.FC = () => {
+  const { rooms, createRoom, currentUser, isConnected } = useAppContext();
+  const navigate = useNavigate();
+  const [isCreatingRoom, setIsCreatingRoom] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [roomName, setRoomName] = useState('');
+
+  const handleModalSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!roomName.trim()) return;
+    setIsCreatingRoom(true);
+    setShowModal(false); // close modal
+    createRoom(roomName, true, (roomId) => {
+      setIsCreatingRoom(false);
+      if (roomId) {
+        navigate(`/room/${roomId}`);
+      } else {
+        alert('Failed to create room. Please try again.');
+      }
+    });
+  };
+
+  const handleCreateRoom = () => {
+    if (!currentUser) {
+      navigate('/login');
+      return;
+    }
+    if (!isConnected) {
+      alert('Not connected to server. Please try again later.');
+      return;
+    }
+    setRoomName('');
+    setShowModal(true);
+  };
+
+  const handleJoinRoom = (roomId: string) => {
+    if (!currentUser) {
+      navigate('/login');
+      return;
+    }
+    if (!isConnected) {
+      alert('Not connected to server. Please try again later.');
+      return;
+    }
+    navigate(`/room/${roomId}`);
+  };
+
+  return (
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-layout">
+      <aside className="bg-manga-black border-r-4 border-neon-cyan p-4 overflow-y-auto">
+        <h2 className="font-manga font-black text-2xl text-neon-cyan mb-6 border-b-2 border-neon-cyan pb-2">
+          Chapters (Rooms)
+        </h2>
+        {!isConnected && (
+          <p className="text-yellow-400 text-sm mb-4">Connecting to server...</p>
+        )}
+        <div className="space-y-4 pr-2">
+          {rooms.length === 0 && isConnected ? (
+            <p className="text-gray-400">No rooms available. Create one!</p>
+          ) : (
+            rooms.map((room) => (
+              <div onClick={() => handleJoinRoom(room.id)} key={room.id}>
+                <RoomCard
+                  title={room.title}
+                  host={
+                    room.hostId === currentUser?.id
+                      ? currentUser.username
+                      : `User_${room.hostId.slice(0, 4)}`
+                  }
+                  participants={room.participants.length}
+                />
+              </div>
+            ))
+          )}
+        </div>
+        <button
+          onClick={handleCreateRoom}
+          className="speech-bubble-button w-full mt-6 flex items-center justify-center disabled:opacity-50"
+          disabled={!isConnected || isCreatingRoom}
+        >
+          <Plus size={20} className="mr-2" />
+          {isCreatingRoom ? 'Creating...' : 'Create Room'}
+        </button>
+      </aside>
+      <main className="bg-gray-900 bg-cityscape bg-cover bg-center flex items-center justify-center p-8 relative">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 text-center">
+          <h1
+            className="font-manga font-black text-6xl md:text-8xl text-manga-white mb-4"
+            style={{ textShadow: '3px 3px 0px #00FFFF' }}
+          >
+            Join the Convo
+          </h1>
+          <p className="text-xl text-gray-300 max-w-lg mx-auto">
+            Dive into dynamic voice rooms inspired by the world of manga. Connect, chat, and create.
+          </p>
+          {currentUser ? (
+            <p className="mt-4 text-neon-cyan">Welcome, {currentUser.username}!</p>
+          ) : (
+            <a href="/login" className="mt-4 text-neon-cyan underline">
+              Log in to start
+            </a>
+          )}
+        </div>
+      </main>
+
+      { /* Modal for entering room name */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          {/* Modal backdrop */}
+          <div className="fixed inset-0 bg-black opacity-50"></div>
+          {/* Modal container */}
+          <div className="bg-manga-white text-manga-black p-8 md:p-12 rounded-lg border-4 border-manga-black relative transform -rotate-2 shadow-lg z-10">
+            <h2 className="font-manga font-black text-3xl text-center mb-6">
+              Enter Room Name
+            </h2>
+            <form onSubmit={handleModalSubmit}>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  value={roomName}
+                  onChange={(e) => setRoomName(e.target.value)}
+                  placeholder="Room Name"
+                  className="w-full px-3 py-2 bg-transparent border-b-2 border-manga-black focus:border-neon-cyan outline-none transition-colors duration-300"
+                  autoFocus
+                />
+              </div>
+              <div className="flex justify-between">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="speech-bubble-button !bg-neon-magenta w-1/2 mr-2"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="speech-bubble-button !bg-neon-lime w-1/2 ml-2"
+                >
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default HomePage;
+
+.//src/pages/LiveRoomPage.tsx
+import React, { useEffect, useRef, useState } from 'react';
+import UserAvatar from '../components/UserAvatar';
+import ControlButton from '../components/ControlButton';
+import { Mic, MicOff, PhoneOff, UserMinus, UserPlus } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
+import { useParams, useNavigate } from 'react-router-dom';
+
+const LiveRoomPage: React.FC = () => {
+  const { roomId } = useParams<{ roomId: string }>();
+  const { currentUser, rooms, socket, toggleMute, promoteToSpeaker, kickUser, leaveRoom, isConnected } = useAppContext();
+  const navigate = useNavigate();
+  const [room, setRoom] = useState<any>(null);
+  const localStream = useRef<MediaStream | null>(null);
+  const peers = useRef<{ [key: string]: RTCPeerConnection }>({});
+
+  useEffect(() => {
+    if (!socket || !roomId || !isConnected || !currentUser) {
+      console.log('Cannot initialize room: Missing socket, roomId, connection, or user');
+      return;
+    }
+    
+    console.log('Initializing LiveRoomPage for roomId:', roomId);
+
+    // Set initial room from rooms array if available
+    const initialRoom = rooms.find((r) => r.id === roomId);
+    if (initialRoom) {
+      console.log('Found room in initial rooms:', initialRoom);
+      setRoom(initialRoom);
+    }
+
+    // Join room if not already joined
+    const joinIfNeeded = () => {
+      const currentRoom = rooms.find((r) => r.id === roomId);
+      if (!currentRoom || !currentRoom.participants.some((p: any) => p.userId === currentUser.id)) {
+        console.log('Joining room:', roomId);
+        socket.emit('joinRoom', roomId, (success: boolean) => {
+          if (success) {
+            console.log('Successfully joined room:', roomId);
+          } else {
+            console.log('Failed to join room:', roomId);
+            navigate('/'); // Redirect if join fails
+          }
+        });
+      } else {
+        console.log('Already in room:', roomId);
+      }
+    };
+
+    joinIfNeeded();
+
+    // Create individual callback functions for events
+    const handleRoomUpdated = (updatedRoom: any) => {
+      console.log('Received roomUpdated:', updatedRoom);
+      if (updatedRoom.id === roomId) {
+        setRoom(updatedRoom);
+      }
+    };
+
+    const handleRoomsUpdated = (updatedRooms: any[]) => {
+      console.log('Received roomsUpdated:', updatedRooms);
+      const updatedRoom = updatedRooms.find((r) => r.id === roomId);
+      if (updatedRoom) {
+        setRoom(updatedRoom);
+      }
+    };
+
+    const handleOffer = async ({ offer, from }: any) => {
+      const pc = createPeerConnection(from);
+      await pc.setRemoteDescription(new RTCSessionDescription(offer));
+      const answer = await pc.createAnswer();
+      await pc.setLocalDescription(answer);
+      socket.emit('answer', { roomId, answer, to: from });
+    };
+
+    const handleAnswer = async ({ answer, from }: any) => {
+      const pc = peers.current[from];
+      if (pc) await pc.setRemoteDescription(new RTCSessionDescription(answer));
+    };
+
+    const handleIceCandidate = async ({ candidate, from }: any) => {
+      const pc = peers.current[from];
+      if (pc) await pc.addIceCandidate(new RTCIceCandidate(candidate));
+    };
+
+    // Register event listeners specific to this component
+    socket.on('roomUpdated', handleRoomUpdated);
+    socket.on('roomsUpdated', handleRoomsUpdated);
+    socket.on('offer', handleOffer);
+    socket.on('answer', handleAnswer);
+    socket.on('ice-candidate', handleIceCandidate);
+
+    const initWebRTC = async () => {
+      try {
+        localStream.current = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const roomData = rooms.find((r) => r.id === roomId);
+        if (!roomData) return;
+
+        roomData.participants.forEach((p: any) => {
+          if (p.userId !== currentUser.id && p.isSpeaker) createPeerConnection(p.userId);
+        });
+      } catch (err) {
+        console.error('WebRTC init error:', err);
+      }
+    };
+
+    initWebRTC();
+
+    function createPeerConnection(userId: string) {
+      const pc = new RTCPeerConnection({
+        iceServers: [{ urls: 'stun:stun.l.google.com:19302' }],
+      });
+      peers.current[userId] = pc;
+
+      if (localStream.current) {
+        localStream.current.getTracks().forEach((track) => pc.addTrack(track, localStream.current!));
+      }
+
+      pc.ontrack = (event) => {
+        const audio = document.createElement('audio');
+        audio.srcObject = event.streams[0];
+        audio.autoplay = true;
+        document.body.appendChild(audio);
+      };
+
+      pc.onicecandidate = (event) => {
+        if (event.candidate) {
+          socket!.emit('ice-candidate', { roomId, candidate: event.candidate });
+        }
+      };
+
+      pc.createOffer()
+        .then((offer) => pc.setLocalDescription(offer))
+        .then(() => socket!.emit('offer', { roomId, offer: pc.localDescription }));
+
+      return pc;
+    }
+
+    return () => {
+      console.log('Cleaning up LiveRoomPage...');
+      // Remove only the listeners that this component added.
+      socket.off('roomUpdated', handleRoomUpdated);
+      socket.off('roomsUpdated', handleRoomsUpdated);
+      socket.off('offer', handleOffer);
+      socket.off('answer', handleAnswer);
+      socket.off('ice-candidate', handleIceCandidate);
+
+      if (localStream.current) {
+        localStream.current.getTracks().forEach((track) => track.stop());
+      }
+      Object.values(peers.current).forEach((pc) => pc.close());
+    };
+  }, [socket, roomId, currentUser, rooms, isConnected, navigate]);
+
+  if (!currentUser || !isConnected) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+        {isConnected ? 'Loading room...' : 'Not connected to server. Please refresh.'}
+      </div>
+    );
+  }
+
+  if (!room) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+        Room not found or still loading...
+      </div>
+    );
+  }
+
+  const isHost = room.hostId === currentUser.id;
+  const currentParticipant = room.participants.find((p: any) => p.userId === currentUser.id);
+
+  const handleLeave = () => {
+    leaveRoom(room.id);
+    navigate('/');
+  };
+
+  const handleToggleMute = () => {
+    toggleMute(room.id, currentUser.id);
+    if (localStream.current) {
+      localStream.current.getAudioTracks()[0].enabled = !currentParticipant?.isMuted;
+    }
+  };
+
+  const handleKick = (userId: string) => {
+    if (isHost) kickUser(room.id, userId);
+  };
+
+  const handlePromote = (userId: string) => {
+    if (isHost) promoteToSpeaker(room.id, userId);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-900 bg-screentone">
+      <header
+        className="bg-manga-black p-3 text-manga-white relative overflow-hidden"
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0% 100%)' }}
+      >
+        <div className="absolute bottom-0 left-0 h-1 w-full bg-neon-magenta"></div>
+        <h1 className="font-manga font-black text-2xl">{room.title}</h1>
+        <p className="text-sm text-gray-400">
+          Hosted by {room.hostId === currentUser.id ? 'You' : `User_${room.hostId.slice(0, 4)}`}
+        </p>
+      </header>
+      <main className="flex-grow p-4 md:p-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 place-items-center overflow-y-auto">
+        {room.participants.map((p: any) => (
+          <div key={p.userId} className="relative">
+            <UserAvatar
+              name={p.userId === currentUser.id ? currentUser.username : `User_${p.userId.slice(0, 4)}`}
+              status={
+                p.isSpeaker && !p.isMuted ? 'speaking' : p.isMuted ? 'muted' : 'listening'
+              }
+              isHost={p.userId === room.hostId}
+            />
+            {isHost && p.userId !== currentUser.id && !p.isSpeaker && (
+              <ControlButton
+                icon={<UserPlus size={16} />}
+                label="Promote"
+                variant="cyan"
+                onClick={() => handlePromote(p.userId)}
+              />
+            )}
+          </div>
+        ))}
+      </main>
+      <footer className="bg-manga-black p-3 border-t-4 border-manga-black flex justify-center items-center flex-wrap">
+        <ControlButton
+          icon={currentParticipant?.isMuted ? <MicOff size={24} /> : <Mic size={24} />}
+          label={currentParticipant?.isMuted ? 'Unmute' : 'Mute'}
+          onClick={handleToggleMute}
+          variant={currentParticipant?.isMuted ? 'magenta' : 'lime'}
+          isActive={currentParticipant?.isMuted}
+        />
+        {isHost && (
+          <ControlButton
+            icon={<UserMinus size={24} />}
+            label="Kick"
+            variant="magenta"
+            onClick={() =>
+              handleKick(
+                room.participants.find((p: any) => p.userId !== currentUser.id)?.userId || ''
+              )
+            }
+          />
+        )}
+        <ControlButton
+          icon={<PhoneOff size={24} />}
+          label="Leave"
+          variant="cyan"
+          onClick={handleLeave}
+        />
+      </footer>
+    </div>
+  );
+};
+
+export default LiveRoomPage;
+
+.//src/vite-env.d.ts
+/// <reference types="vite/client" />
+
+
+.//tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'neon-cyan': '#00FFFF',
+        'neon-magenta': '#FF00FF',
+        'neon-lime': '#39FF14', // Lime green
+        'manga-black': '#1a1a1a', // Deep black
+        'manga-white': '#f0f0f0', // Bright white
+      },
+      fontFamily: {
+        // Using Montserrat as a substitute for 'Anime Ace'
+        sans: ['Montserrat', 'sans-serif'],
+        manga: ['Montserrat', 'sans-serif'], // Specific alias for manga titles/bubbles
+      },
+      boxShadow: {
+        'neon-cyan': '0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF',
+        'neon-magenta': '0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 15px #FF00FF',
+        'neon-lime': '0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 15px #39FF14',
+      },
+      backgroundImage: {
+        // Simple dot pattern for screentone effect
+        'screentone-dots': 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
+        'speed-lines': 'radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 70%)',
+        'cityscape': "url('https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // Placeholder cityscape
+      },
+      backgroundSize: {
+        'screentone-size': '10px 10px',
+      },
+      gridTemplateColumns: {
+        'layout': '280px 1fr', // Sidebar and main content
+      },
+      keyframes: {
+        pulse: {
+          '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+          '50%': { opacity: 0.7, transform: 'scale(1.05)' },
+        },
+        flash: {
+          '0%, 100%': { filter: 'brightness(1)' },
+          '50%': { filter: 'brightness(1.5)' },
+        }
+      },
+      animation: {
+        pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        flash: 'flash 0.3s ease-in-out',
+      }
+    },
+  },
+  plugins: [],
+}
+
+
+.//tsconfig.app.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
+
+
+.//tsconfig.json
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+
+
+.//tsconfig.node.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts"]
+}
+
+
+.//vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  optimizeDeps: {
+    exclude: ['lucide-react'],
+  },
+  server: {
+    port: 3002,
+  },
+})
+
+
+These are the server files that I have made.
+./server/index.js
+// File: /server/index.js
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+const app = express();
+const server = createServer(app);
+const io = new Server(server, { cors: { origin: 'http://localhost:3002' } }); // Adjust for your frontend port
+
+let rooms = [];
+let users = [{ id: '1', username: 'Sensei', email: 'sensei@example.com', password: 'pass123' }];
+
+io.on('connection', (socket) => {
+  console.log('User connected:', socket.id);
+
+  socket.on('register', ({ username, email, password }, callback) => {
+    if (users.some((u) => u.email === email)) return callback({ success: false, error: 'Email exists' });
+    const user = { id: socket.id, username, email, password };
+    users.push(user);
+    callback({ success: true, user });
+  });
+
+  socket.on('login', ({ email, password }, callback) => {
+    const user = users.find((u) => u.email === email && u.password === password);
+    if (!user) return callback({ success: false, error: 'Invalid credentials' });
+    // Update the user's id to the current socket id.
+    callback({ success: true, user: { ...user, id: socket.id } });
+  });
+
+  socket.on('createRoom', ({ title, isPublic }, callback) => {
+    console.log('Received createRoom:', { title, isPublic });
+    // Generate a unique room ID instead of relying solely on Date.now()
+    const roomId = `${Date.now()}-${Math.random().toString(36).substr(2, 5)}`;
+    const room = {
+      id: roomId,
+      title,
+      hostId: socket.id,
+      participants: [{ userId: socket.id, isSpeaker: true, isMuted: false }],
+      isPublic,
+    };
+    rooms.push(room);
+    socket.join(roomId);
+    io.emit('roomsUpdated', rooms);
+    console.log('Sending createRoom callback:', roomId);
+    callback(roomId);
+  });
+
+  socket.on('joinRoom', (roomId, callback) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (!room || room.participants.some((p) => p.userId === socket.id)) {
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+      callback(true);
+      return;
+    }
+    room.participants.push({ userId: socket.id, isSpeaker: false, isMuted: false });
+    socket.join(roomId);
+    io.to(roomId).emit('roomUpdated', room);
+    io.emit('roomsUpdated', rooms);
+    callback(true);
+  });
+
+  socket.on('leaveRoom', (roomId) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room) {
+      room.participants = room.participants.filter((p) => p.userId !== socket.id);
+      socket.leave(roomId);
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+    }
+  });
+
+  socket.on('toggleMute', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room) {
+      room.participants = room.participants.map((p) =>
+        p.userId === userId ? { ...p, isMuted: !p.isMuted } : p
+      );
+      io.to(roomId).emit('roomUpdated', room);
+    }
+  });
+
+  socket.on('promoteToSpeaker', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room && room.hostId === socket.id) {
+      room.participants = room.participants.map((p) =>
+        p.userId === userId ? { ...p, isSpeaker: true, isMuted: false } : p
+      );
+      io.to(roomId).emit('roomUpdated', room);
+    }
+  });
+
+  socket.on('kickUser', ({ roomId, userId }) => {
+    const room = rooms.find((r) => r.id === roomId);
+    if (room && room.hostId === socket.id) {
+      room.participants = room.participants.filter((p) => p.userId !== userId);
+      io.to(roomId).emit('roomUpdated', room);
+      io.emit('roomsUpdated', rooms);
+    }
+  });
+
+  socket.on('offer', ({ roomId, offer }) => {
+    socket.to(roomId).emit('offer', { offer, from: socket.id });
+  });
+
+  socket.on('answer', ({ roomId, answer, to }) => {
+    socket.to(to).emit('answer', { answer, from: socket.id });
+  });
+
+  socket.on('ice-candidate', ({ roomId, candidate }) => {
+    socket.to(roomId).emit('ice-candidate', { candidate, from: socket.id });
+  });
+
+  socket.on('disconnect', () => {
+    rooms = rooms.map((r) => ({
+      ...r,
+      participants: r.participants.filter((p) => p.userId !== socket.id),
+    }));
+    io.emit('roomsUpdated', rooms);
+    console.log('User disconnected:', socket.id);
+  });
+});
+
+server.listen(3001, () => console.log('Server running on port 3001'));
+
